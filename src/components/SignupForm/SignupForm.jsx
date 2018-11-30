@@ -26,7 +26,7 @@ class SignupForm extends Component {
     userService.signup(this.state)
       // successfully signed up - show GamePage
       .then(() => {
-        this.props.handleSignup();
+        this.props.handleSignuporLogin();
         this.props.history.push('/');
       })
       // invalid user data

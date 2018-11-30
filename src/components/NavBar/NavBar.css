@@ -1,3 +1,24 @@
 .NavBar-welcome {
     color: grey;
   }
+
+.NavBar {
+  background-color: rgb(67, 90, 175);
+  height: 50px;
+}
+
+.NavBar-link, .NavBar-welcome {
+  color: white;
+  float: right;
+  padding: 15px 10px;
+  margin: 5px;
+  font-weight: 500;
+}
+
+.NavBar-logo {
+  font-size: 25px;
+  padding: 10px 8px;
+  float: left;
+  color: white;
+  font-weight: 500;
+}
