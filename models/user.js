@@ -3,16 +3,21 @@ var bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
-var setSchema = new mongoose.Schema({
+var cardSchema = new mongoose.Schema({
   english: String,
   russian: String
+})
+
+var setSchema = new mongoose.Schema({
+  title: String,
+  cards: [cardSchema]
 })
 
 var userSchema = new mongoose.Schema({
   name: String,
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
-  studySet: setSchema
+  studySets: [setSchema]
 }, {
   timestamps: true
 });

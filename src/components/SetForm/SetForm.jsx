@@ -1,30 +1,18 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import setService from '../../utils/setService';
-import userService from '../../utils/userService';
 
 class SetForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      english: '',
+      title: '',
+      cards: [],
       russian: '',
-      studySet: null,
-      edit: false
+      english: ''
     }
   }
 
-  componentDidMount() {
-    setService.getUser1(this.props.user._id)
-        .then(res => {
-            res.json()
-                .then(user => this.setState({
-                    set: user.set,
-                    english: user.set ? user.set.english : '',
-                    russian: user.set ? user.set.russian : ''
-                }))
-        })
-  }
 
   handleChange = (field, e) => {
     this.setState({
@@ -34,27 +22,37 @@ class SetForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    setService.create(this.state, this.props.user)
-        .then(res => {
-            res.json()
-                .then(user => {
-                    // this.props.setProfile(user.profile);
-                    this.setState({ set: user.set, edit: false })
-                })
-        })
+    delete this.state.russian;
+    delete this.state.english;
+    
+    setService.create(this.state)
+    .then(res => res.json())
+    .then(user => {
+        this.props.handleAddStudySet(user);
+        this.props.history.push('/display');
+    });
+}
+
+addCard = (e) => {
+    e.preventDefault();
+    this.setState(curState => ({
+        cards: [{russian: this.state.russian, english: this.state.english}, ...curState.cards],
+        russian: '',
+        english: '', 
+        // title: ''
+    }));
   }
 
-  toggleEdit = () => this.setState({ edit: !this.state.edit })
+  deleteHandler = (idx) => this.setState(curState => ({
+    cards: curState.cards.filter((c, i) => i !== idx)
+  }));
 
   render() {
     console.log(this.state)
     return (
       <div>
         <header className="header-footer">Create Study Set</header>
-        {this.state.set && !this.state.edit
-          ?
-          <SetCard set={this.state.set} toggleEdit={this.toggleEdit} />
-          :
+        <input type="title" className="title" placeholder="Enter Title" value={this.state.title} onChange={(e) => this.handleChange('title', e)}></input>
           <form className="form-horizontal">
               <div className="form-group">
                   <div className="col-sm-12">
@@ -68,12 +66,14 @@ class SetForm extends Component {
               </div>
               <div className="form-group">
                   <div className="col-sm-12 text-center">
-                      <button className="btn btn-default" onClick={this.handleSubmit}>Add</button>&nbsp;&nbsp;&nbsp;
+                      <button className="btn btn-default" onClick={this.addCard}>Add</button>&nbsp;&nbsp;&nbsp;
                       <Link to='/'>Cancel</Link>
                   </div>
               </div>
           </form>
-        }
+        <header className="header-footer">{this.state.title} Study Set</header>
+        {this.state.cards.map((card, idx) => <SetCard card={card} idx={idx} deleteHandler={this.deleteHandler}/>)}
+        <button onClick={this.handleSubmit}>Create Study Set</button>
       </div>
     );
   }
@@ -83,10 +83,9 @@ const SetCard = (props) => {
   console.log(props)
   return (
       <div>
-          <p>{props.set && props.set.english}</p>
-          <p>{props.set && props.set.russian}</p>
-          <button onClick={props.toggleEdit}>Edit</button>
-          <button>Delete</button>
+          <p>{props.card.english}</p>
+          <p>{props.card.russian}</p>
+          <button onClick={() => props.deleteHandler(props.idx)}>Delete</button>
       </div>
   )
 }

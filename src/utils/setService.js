@@ -1,25 +1,16 @@
 import tokenService from './tokenService';
 
-
-function getUser() {
-    return tokenService.getUserFromToken();
-}
-
-function getUser1(id) {
-    return fetch(`/api/users/${id}`)
-}
-
-function create(set, userId) {
-    console.log(set);
+function create(studySet) {
     return fetch('/api/sets', {
         method: 'POST',
-        headers: new Headers({ 'Content-Type': 'application/json' }),
-        body: JSON.stringify(Object.assign(set, { userId }))
-    })
+        headers: new Headers({
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        }),
+        body: JSON.stringify(studySet)
+    });
 }
 
 export default {
-    create,
-    getUser,
-    getUser1
+    create
 }
