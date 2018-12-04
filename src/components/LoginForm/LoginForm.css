@@ -1,0 +1,12 @@
+.LoginForm {
+    margin: 80px 0 0 200px;
+    border: 1px solid grey;
+    width: 60%;
+    padding: 30px;
+}
+
+.header-footer {
+    font-size: 40px;
+    margin: 50px 0 20px 0;
+    font-family: 'Comfortaa', cursive;
+}

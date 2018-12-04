@@ -8,6 +8,13 @@ function createSet(req, res) {
     });
 }
 
+function getAll(req,res) {
+    User.findById(req.user._id).then(user => {
+        res.json(user.studySets);
+    });
+}
+
 module.exports = {
-    createSet
+    createSet,
+    getAll
 };

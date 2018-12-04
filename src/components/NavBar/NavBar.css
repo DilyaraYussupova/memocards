@@ -13,6 +13,8 @@
   padding: 15px 10px;
   margin: 5px;
   font-weight: 500;
+  font-family: 'Comfortaa', cursive;
+  font-size: 13px;
 }
 
 .NavBar-logo {
@@ -21,4 +23,5 @@
   float: left;
   color: white;
   font-weight: 500;
+  font-family: 'Pacifico', cursive;
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import './SetForm.css';
 import setService from '../../utils/setService';
 
 class SetForm extends Component {
@@ -50,30 +51,34 @@ addCard = (e) => {
   render() {
     console.log(this.state)
     return (
-      <div>
+      <div className="SetForm">
         <header className="header-footer">Create Study Set</header>
-        <input type="title" className="title" placeholder="Enter Title" value={this.state.title} onChange={(e) => this.handleChange('title', e)}></input>
           <form className="form-horizontal">
               <div className="form-group">
-                  <div className="col-sm-12">
-                      <input type="english" className="form-control" placeholder="Enter English" value={this.state.english} onChange={(e) => this.handleChange('english', e)} />
+                  <div className="col-sm-8">
+                      <input type="title" className="form-control" placeholder="Enter study set's title" value={this.state.title} onChange={(e) => this.handleChange('title', e)} />
                   </div>
               </div>
               <div className="form-group">
-                  <div className="col-sm-12">
-                      <input type="russian" className="form-control" placeholder="Enter Russian" value={this.state.russian} onChange={(e) => this.handleChange('russian', e)} />
+                  <div className="col-sm-8">
+                      <input type="english" className="form-control" placeholder="Enter english word" value={this.state.english} onChange={(e) => this.handleChange('english', e)} />
+                  </div>
+              </div>
+              <div className="form-group">
+                  <div className="col-sm-8">
+                      <input type="russian" className="form-control" placeholder="Enter russian word" value={this.state.russian} onChange={(e) => this.handleChange('russian', e)} />
                   </div>
               </div>
               <div className="form-group">
                   <div className="col-sm-12 text-center">
-                      <button className="btn btn-default" onClick={this.addCard}>Add</button>&nbsp;&nbsp;&nbsp;
+                      <button className="btn btn-primary" onClick={this.addCard}>Add</button>&nbsp;&nbsp;&nbsp;
                       <Link to='/'>Cancel</Link>
                   </div>
               </div>
           </form>
         <header className="header-footer">{this.state.title} Study Set</header>
         {this.state.cards.map((card, idx) => <SetCard card={card} idx={idx} deleteHandler={this.deleteHandler}/>)}
-        <button onClick={this.handleSubmit}>Create Study Set</button>
+        <button  className=" btn btn-primary createBtn" onClick={this.handleSubmit}>Create Study Set</button>
       </div>
     );
   }
@@ -82,10 +87,10 @@ addCard = (e) => {
 const SetCard = (props) => {
   console.log(props)
   return (
-      <div>
-          <p>{props.card.english}</p>
-          <p>{props.card.russian}</p>
-          <button onClick={() => props.deleteHandler(props.idx)}>Delete</button>
+      <div className="SetCard">
+          <p className="left">{props.card.english}</p>
+          <p className="right">{props.card.russian}</p>
+          <button className="deleteBtn" onClick={() => props.deleteHandler(props.idx)}>Delete</button>
       </div>
   )
 }

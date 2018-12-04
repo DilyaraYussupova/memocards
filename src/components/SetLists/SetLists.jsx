@@ -1,15 +1,18 @@
 import React from 'react';
 import './SetLists.css';
+import {Link} from 'react-router-dom';
 
 const SetLists = (props) => {
+    // console.log(props.studySets)
     return (
-        <div>
-        <div className="card">
-            <div className="card-body">
-                <a href="#" className="card-title">Card title</a>
-                <a href="#" className="btn btn-primary">Go</a>
+        <div className="grid">
+            <div className="row">
+                {props.studySets.map(s => (
+                    <div className="thumbnail">
+                        <p><Link to={`/flashcard/${s._id}`}>{s.title}</Link></p>
+                    </div>
+                ))}
             </div>
-        </div>
         </div>
     )
 }

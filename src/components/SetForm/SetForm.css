@@ -1,0 +1,58 @@
+.SetForm {
+    margin: 50px 0 0 260px;
+    border: 1px solid grey;
+    width: 60%;
+    padding: 30px;
+}
+
+.SetCard {
+    font-size: 20px;
+    display: flex;
+    border: 1px solid rgba(212, 202, 202, 0.568);
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.right {
+    width: 200px;
+}
+
+.left {
+    flex: 1;
+}
+
+.deleteBtn {
+    font-size: 15px;
+    padding: 2px;
+    border-radius: 20%;
+}
+
+.createBtn {
+    margin-left: 280px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(41, 101, 168);
+    border-radius: 8%;
+    font-size: 13px;
+}
+
+.header-footer {
+    font-size: 40px;
+    margin: 50px 0 20px 0;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+}
+
+.form-horizontal {
+    margin: 10px 230px;
+}
+
+.btn-primary {
+    margin-left: 0;
+}
+
+.form-control {
+    width: 250px;
+}
+
+

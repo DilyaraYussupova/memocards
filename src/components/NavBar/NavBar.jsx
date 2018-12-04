@@ -6,10 +6,10 @@ const NavBar = (props) => {
     let nav = props.user ?
       <div>
         <Link to='/' className='NavBar-logo'>MemoCard</Link>
-        <Link to='/create' className='NavBar-link' ><span>📑</span>Create</Link>
-        <Link to='/display' className='NavBar-link'>Your Study Sets</Link>
         <Link to="" className='NavBar-link' onClick={props.handleLogout} >LOG OUT</Link>
-        <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
+        <Link to='/display' className='NavBar-link'>Your Study Sets</Link>
+        <Link to='/create' className='NavBar-link'>Create</Link>
+        <span className='NavBar-welcome'>Welcome, {props.user.name}</span>
       </div>
       :
       <div>

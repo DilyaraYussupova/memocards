@@ -3,6 +3,7 @@ var router = express.Router();
 var setsCtrl = require('../../controllers/sets');
 
 /*---------- Public Routes ----------*/
+router.get('/', setsCtrl.getAll);
 router.post('/', setsCtrl.createSet);
 
 

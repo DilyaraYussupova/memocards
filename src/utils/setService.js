@@ -1,5 +1,16 @@
 import tokenService from './tokenService';
 
+function getAll() {
+    return fetch('/api/sets', {
+        method: 'GET',
+        headers: new Headers({
+            'Authorization': 'Bearer ' + tokenService.getToken()
+        }),
+    })
+        .then(res => res.json())
+        .then( studySets => studySets);
+}
+
 function create(studySet) {
     return fetch('/api/sets', {
         method: 'POST',
@@ -12,5 +23,6 @@ function create(studySet) {
 }
 
 export default {
-    create
+    create,
+    getAll
 }
