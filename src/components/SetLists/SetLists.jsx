@@ -3,7 +3,6 @@ import './SetLists.css';
 import {Link} from 'react-router-dom';
 
 const SetLists = (props) => {
-    // console.log(props.studySets)
     return (
         <div className="grid">
             <div className="row">

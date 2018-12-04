@@ -19,7 +19,7 @@ class App extends Component {
     super(props);
     this.state = {
       studySets: [],
-      user: {}
+      user: null
     };
   }
 

@@ -36,6 +36,7 @@ function login(req, res) {
 /*----- Helper Functions -----*/
 
 function createJWT(user) {
+  delete user.studySets;
   return jwt.sign(
     {user}, // data payload
     SECRET,
