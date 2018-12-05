@@ -22,9 +22,9 @@ MemoCards is a full-stack web application which helps to revise new words using 
 
  | HTTP method | Endpoint | CRUD |
 | ------------ |:-------------:| -----:|
-| GET | /display | getAllStudySets |
-| GET | /flashcards/:id' | getOneStudySet |
-| POST | /create | createStudySet |
+| GET | /display | Read all study sets |
+| GET | /flashcards/:id' | Read a specific study set |
+| POST | /create | Create a new study set |
 
 
  ## Links
