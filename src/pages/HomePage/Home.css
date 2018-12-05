@@ -19,6 +19,10 @@ h3 {
     font-family: 'Pacifico', cursive;
 }
 
-a, span {
-    color: rgb(219, 63, 124);;
+span {
+    color: rgb(219, 63, 124);
+}
+
+h3 a {
+    color: rgb(219, 63, 124);
 }

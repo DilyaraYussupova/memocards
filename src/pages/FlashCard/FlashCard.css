@@ -1,72 +1,18 @@
-body {
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 100%;
-    background-color: #fff;
+.flashcards {
+    border: 1px solid rgb(41, 101, 168);
+    color: white;
+    background-color: rgb(41, 101, 168);
+    padding: 8px;
+    margin-left: 580px;
+    font-size: 15px;
 }
 
-.card-container {
-    position: relative;
-    z-index: 1;
-    margin: 32px auto;
-    max-width: 720px;
-    height: 420px;
-    perspective: 1000px;
+.flashcards:hover {
+    color: white;
 }
 
-.card-body {
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: all .7s linear;
-}
-
-.card-container:hover .card-body {
-    transform: rotateY(180deg);
-}
-  
-.card-container:hover > .card-body > .side-front {
-/* opacity: 0; */
-visibility: hidden;
-background-color: #fff;
-/* transition: opacity 1s ease-in, visibility .75s linear; */
-}
-
-.card-side {
-position: absolute;
-top: 0;
-overflow: hidden;
-width: 100%;
-height: 100%;
-color: rgb(67, 90, 175);
-background-color: #fff;
-backface-visibility: hidden;
-box-shadow: 0 10px 35px rgba(50,50,93,.1),0 2px 15px rgba(0,0,0,.07);
-}
-
-/*- Front side -*/
-.side-front [class^=col-xs]:first-of-type {
-    padding-left: 0;
-    
-}
-  
-.side-front-content {
-padding-top: 32px;
-padding-right: 32px;
-padding-bottom: 32px;
-}
-  
-/*- Back side -*/
-.side-back {
-z-index: 2;
-padding: 32px;
-text-align: center;
-transform: rotateY(180deg);
-background-color: #fff;
-}
-
-h2 {
-font-size: 40px;   
-text-align: center;
-margin-top: 180px;
-color: red;
+.cardEach {
+    margin-top: 40px;
+    border: 1px solid lightgray;
+    background-color: rgb(236, 236, 236);
 }

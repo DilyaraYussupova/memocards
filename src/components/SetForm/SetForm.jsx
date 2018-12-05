@@ -51,6 +51,7 @@ addCard = (e) => {
   render() {
     console.log(this.state)
     return (
+      <div className="setCreate">
       <div className="SetForm">
         <header className="header-footer">Create Study Set</header>
           <form className="form-horizontal">
@@ -76,9 +77,10 @@ addCard = (e) => {
                   </div>
               </div>
           </form>
-        <header className="header-footer">{this.state.title} Study Set</header>
+        {/* <header className="header-footer">{this.state.title} Study Set</header> */}
         {this.state.cards.map((card, idx) => <SetCard card={card} idx={idx} deleteHandler={this.deleteHandler}/>)}
-        <button  className=" btn btn-primary createBtn" onClick={this.handleSubmit}>Create Study Set</button>
+        <button  className="btn btn-primary" className="createBtn" onClick={this.handleSubmit}>Create Study Set</button>
+      </div>
       </div>
     );
   }

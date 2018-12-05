@@ -3,6 +3,7 @@
     border: 1px solid grey;
     width: 60%;
     padding: 30px;
+    background-color: rgb(236, 236, 236);
 }
 
 .SetCard {
@@ -11,6 +12,7 @@
     border: 1px solid rgba(212, 202, 202, 0.568);
     padding: 20px;
     margin: 15px 0;
+    background-color: white;
 }
 
 .right {
@@ -22,9 +24,9 @@
 }
 
 .deleteBtn {
-    font-size: 15px;
-    padding: 2px;
-    border-radius: 20%;
+    font-size: 10px;
+    /* padding: px; */
+    border-radius: 10%;
 }
 
 .createBtn {

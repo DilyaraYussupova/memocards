@@ -11,8 +11,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import SetForm from '../../components/SetForm/SetForm';
 import SetLists from '../../components/SetLists/SetLists';
 import FlashCard from '../FlashCard/FlashCard';
-
-
+import FlashCards from '../FlashCards/FlashCards';
+import MediaQuery from 'react-responsive';
 
 class App extends Component {
   constructor(props) {
@@ -41,7 +41,8 @@ class App extends Component {
   componentDidMount() {
     var user = userService.getUser();
     console.log(user)
-    if (user) { 
+    if (user) {
+      this.setState({user})
       // TODO: get the user's studySets and update state
       setService.getAll()
         .then(studySets => this.setState({ studySets: studySets }))
@@ -85,7 +86,11 @@ class App extends Component {
           <Route exact path="/flashcard/:studySetId" render={(props) =>
             <FlashCard
               studySet={this.state.studySets.find(s => s._id === props.match.params.studySetId)}
-
+            />
+          } />
+          <Route exact path="/flashcards/:studySetId" render={(props) =>
+            <FlashCards
+              studySet={this.state.studySets.find(s => s._id === props.match.params.studySetId)}
             />
           } />
         </Switch>

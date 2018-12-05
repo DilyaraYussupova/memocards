@@ -17,6 +17,15 @@
   font-size: 13px;
 }
 
+.NavBar-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.NavBar-logo:hover {
+  color: white;
+}
+
 .NavBar-logo {
   font-size: 25px;
   padding: 10px 8px;
@@ -24,4 +33,10 @@
   color: white;
   font-weight: 500;
   font-family: 'Pacifico', cursive;
+}
+
+@media screen and (min-width: 400px) {
+  .NavBar {
+
+  }
 }
