@@ -40,7 +40,6 @@ addCard = (e) => {
         cards: [{russian: this.state.russian, english: this.state.english}, ...curState.cards],
         russian: '',
         english: '', 
-        // title: ''
     }));
   }
 
