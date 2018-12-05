@@ -12,7 +12,6 @@ import SetForm from '../../components/SetForm/SetForm';
 import SetLists from '../../components/SetLists/SetLists';
 import FlashCard from '../FlashCard/FlashCard';
 import FlashCards from '../FlashCards/FlashCards';
-import MediaQuery from 'react-responsive';
 
 class App extends Component {
   constructor(props) {
